@@ -1,2 +1,9 @@
 #!/bin/bash
-python3 -m py_compile "$PYFILE" > /dev/null
+import os
+import py_compile
+
+py_file = os.environ.get("PYFILE")
+
+if py_file:
+    print(f"Compiling {py_file} ...")
+    py_compile.compile(py_file)
