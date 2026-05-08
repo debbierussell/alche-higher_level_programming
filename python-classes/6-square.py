@@ -34,7 +34,7 @@ class Square:
         """Retrieves the position of the square."""
         return self.__position
 
-    @size.setter
+    @position.setter
     def position(self, value):
         """Sets the position of the square with validation."""
         if (not isinstance(value, tuple) or len(value) != 2 or
