@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This module defines a Rectangle class with eval-compatible representation."""
+"""This module defines a Rectangle class."""
 
 
 class Rectangle:
@@ -22,7 +22,15 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        """Sets the width with validation."""
+        """Sets the width with validation.
+
+        Args:
+            value (int): The width to set.
+
+        Raises:
+            TypeError: If width is not an integer.
+            ValueError: If width is less than 0.
+        """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -36,7 +44,15 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        """Sets the height with validation."""
+        """Sets the height with validation.
+
+        Args:
+            value (int): The height to set.
+
+        Raises:
+            TypeError: If height is not an integer.
+            ValueError: If height is less than 0.
+        """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
