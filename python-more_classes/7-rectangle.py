@@ -1,14 +1,9 @@
 #!/usr/bin/python3
-"""This module defines a Rectangle class with customizable symbols."""
+"""This module defines a Rectangle class."""
 
 
 class Rectangle:
-    """Represents a rectangle.
-
-    Attributes:
-        number_of_instances (int): The number of active instances.
-        print_symbol (any): The symbol used for string representation.
-    """
+    """Represents a rectangle."""
 
     number_of_instances = 0
     print_symbol = "#"
@@ -61,15 +56,13 @@ class Rectangle:
         """Returns a string representation using print_symbol."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        
-        # Cast to string in case print_symbol is a different type (e.g. list)
         symbol = str(self.print_symbol)
         rows = [symbol * self.__width for _ in range(self.__height)]
         return "\n".join(rows)
 
     def __repr__(self):
-        """Returns a string representation to recreate the instance."""
-        return "Rectangle({}, {})".format(self.__width, self.__height)
+        """Formal representation to recreate the instance."""
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
 
     def __del__(self):
         """Decrements instance count and prints a message."""
