@@ -1,10 +1,33 @@
 #!/usr/bin/python3
-"""N Queens backtracking solver."""
+"""
+N Queens problem solver.
+This script finds and prints every possible solution to the N Queens puzzle.
+"""
 import sys
 
 
+def solve_nqueens():
+    """Validates input and initiates the backtracking solver."""
+    if len(sys.argv) != 2:
+        print("Usage: nqueens N")
+        sys.exit(1)
+
+    try:
+        n = int(sys.argv[1])
+    except ValueError:
+        print("N must be a number")
+        sys.exit(1)
+
+    if n < 4:
+        print("N must be at least 4")
+        sys.exit(1)
+
+    # list to store queen positions: [[row, col], ...]
+    backtrack(n, 0, [])
+
+
 def is_safe(queens, row, col):
-    """Check if position is safe from other queens."""
+    """Checks if placing a queen at [row, col] is safe."""
     for r, c in queens:
         if c == col or abs(r - row) == abs(c - col):
             return False
@@ -12,10 +35,11 @@ def is_safe(queens, row, col):
 
 
 def backtrack(n, row, queens):
-    """Recursively place queens."""
+    """Recursive function to find all valid board configurations."""
     if row == n:
         print(queens)
         return
+
     for col in range(n):
         if is_safe(queens, row, col):
             queens.append([row, col])
@@ -24,18 +48,4 @@ def backtrack(n, row, queens):
 
 
 if __name__ == "__main__":
-    # Validate number of arguments
-    if len(sys.argv) != 2:
-        print("Usage: nqueens N")
-        sys.exit(1)
-    # Validate N is an integer
-    try:
-        n = int(sys.argv[1])
-    except ValueError:
-        print("N must be a number")
-        sys.exit(1)
-    # Validate N size
-    if n < 4:
-        print("N must be at least 4")
-        sys.exit(1)
-    backtrack(n, 0, [])
+    solve_nqueens()
