@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+This module contains a function that reads a text file and prints to stdout.
+"""
 
 
 def read_file(filename=""):
