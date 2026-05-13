@@ -1,3 +1,4 @@
 #!/usr/bin/python3
-number = 98
-print(f"{number} Battery street")
+import random
+number = random.randint(0, 10000)
+print(f"{number:d} Battery street")
