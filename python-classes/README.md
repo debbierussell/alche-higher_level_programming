@@ -1,1 +1,1 @@
-
+The program first cleans both essays by removing punctuation and converting all words to lowercase, then converts them into sets to remove duplicates. It calculates the plagiarism percentage by dividing the number of words that appear in both essays (intersection) by the total number of unique words across both essays (union), multiplied by 100. If the result is 50% or more, plagiarism is detected.
